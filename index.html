@@ -7,32 +7,39 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<h1>Country List</h1>
-<form action="javascript:void(0);" onsubmit="addCountry()"> 
-  <input type="text" id="add-country" placeholder="Add new country" required>
-  <input type="text" id="add-continent" placeholder="Add new continent" required>
-  <input type="submit" value="Add">
-</form>
-
-<div id="editForm">
-  <form action="javascript:void(0);" id="saveEdit">
-    <input type="text" id="edit-country">
-    <input type="text" id="edit-continent">
-    <input type="submit" value="Edit" /> <a onclick="closeInput()" aria-label="Close">&#10006;</a>
+  <h1>Country List</h1>
+  <form action="javascript:void(0);" onsubmit="searchbar()"> 
+    <input type="text" id="search" placeholder="Search for a country" required>
+    <input type="submit" value="Search">
+    <input type="submit" value="Reset" onclick="location.reload()">
   </form>
-</div>
+  <p></p>
+  <div>Add another country:</div> 
+  <form action="javascript:void(0);" onsubmit="addCountry()"> 
+    <input type="text" id="add-country" placeholder="Add new country" required>
+    <input type="text" id="add-continent" placeholder="Add new continent" required>
+    <input type="submit" value="Add">
+  </form>
 
-<p id="counter"></p>
+  <div id="editForm">
+    <form action="javascript:void(0);" id="saveEdit">
+      <input type="text" id="edit-country">
+      <input type="text" id="edit-continent">
+      <input type="submit" value="Edit" /> <a onclick="closeInput()" aria-label="Close">&#10006;</a>
+    </form>
+  </div>
 
-<table>
-  <tr>
-    <th id="name">Country names</th>
-    <th id="continent">Continent</th>
-  </tr>
-    <tbody id="countries">
-    </tbody>
-</table>
+  <p id="counter"></p>
 
-<script src="script.js"></script>
+  <table>
+    <tr>
+      <th id="name">Country</th>
+      <th id="continent">Continent</th>
+    </tr>
+      <tbody id="countries">
+      </tbody>
+  </table>
+
+  <script src="script.js"></script>
 </body>
 </html>

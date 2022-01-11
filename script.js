@@ -1,4 +1,6 @@
-// Part 2: CRUD operations with array of objects
+// Part 3: Create a search bar to find a specific country
+
+// Solution with a try catch for validation
 
 // CREATE, READ, UPDATE, DELETE
 var countryList = document.getElementById('countries');
@@ -16,6 +18,7 @@ let countries = [
     continent: 'Africa'
   }
 ];
+
 // Counter: Number of countries in the array
 countCountries = data => {
   var count = document.getElementById('counter');
@@ -49,21 +52,27 @@ getCountries = () => {
 };
 // Create: POST
 addCountry = () => {
-  var countryAdded = document.getElementById('add-country');
-  var continentAdded = document.getElementById('add-continent');
-  // Get the value
-  var countryDetails = {
-    name: countryAdded.value.trim(),
-    continent: continentAdded.value.trim()
-  }
-
-  if (countryDetails) {
-    // addCountry the new value
-    countries.push(countryDetails);
-    // Reset input value
-    countryAdded.value = '';
-    // Dislay the new list
-    getCountries();
+  try {
+    var countryAdded = document.getElementById('add-country').value.trim();
+    var continentAdded = document.getElementById('add-continent').value.trim();
+    if(!countryAdded || !continentAdded) {
+      throw new Error('You have not inserted a value in one of the input fields');
+    }
+    // Get the value
+    var countryDetails = {
+      name: countryAdded,
+      continent: continentAdded
+    }
+    if (countryDetails) {
+      // addCountry the new value
+      countries.push(countryDetails);
+      // Reset input value
+      countryAdded.value = '';
+      // Dislay the new list
+      getCountries();
+    }
+  } catch (err) {
+    alert(err.message);
   }
 };
 // Update: PUT
@@ -77,19 +86,27 @@ editCountry = item => {
   document.getElementById('editForm').style.display = 'block';
   // When the form is submitted
   document.getElementById('saveEdit').onsubmit = () => {
-    // Get value
-    var countryDetails = {
-      name: editCountry.value,
-      continent: editContinent.value
-    };
+    try {
+      console.log(editCountry.value.trim())
+      if(!editCountry.value.trim() || !editContinent.value.trim()) {
+        throw new Error('You have not inserted a value in one of the input fields');
+      }
+      // Get value
+      var countryDetails = {
+        name: editCountry.value,
+        continent: editContinent.value
+      };
 
-    if (countryDetails) {
-      // editCountry value
-      countries.splice(item, 1, countryDetails);
-      // Display the new list
-      getCountries();
-      // Hide fields
-      closeInput();
+      if (countryDetails) {
+        // editCountry value
+        countries.splice(item, 1, countryDetails);
+        // Display the new list
+        getCountries();
+        // Hide fields
+        closeInput();
+      }
+    } catch (err) {
+      alert(err.message);
     }
   }
 };
@@ -99,6 +116,24 @@ deleteCountry = item => {
   countries.splice(item, 1);
   // Display the new list
   getCountries();
+};
+// Search: Country Search
+searchbar = () => {
+  var searchedCountry = document.getElementById('search').value.trim();
+  try {
+    if (!searchedCountry) {
+      throw new Error('Nothing was entered in the search bar');
+    }
+    // Filter all the countries in the array with value typed into the input field
+    let countriesFound = countries.filter(country => country.name.toLowerCase().includes(searchedCountry.toLowerCase()));
+    if(countriesFound.length === 0) {
+      throw new Error('No countries were found');
+    }
+    countries = countriesFound;
+    getCountries();
+  } catch (err) {
+    alert(err.message);
+  }
 };
 
 // Where the script starts. This executes when the file loads on the browser

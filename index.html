@@ -9,13 +9,15 @@
 <body>
 <h1>Country List</h1>
 <form action="javascript:void(0);" onsubmit="addCountry()"> 
-  <input type="text" id="add-name" placeholder="Add new country">
+  <input type="text" id="add-country" placeholder="Add new country" required>
+  <input type="text" id="add-continent" placeholder="Add new continent" required>
   <input type="submit" value="Add">
 </form>
 
 <div id="editForm">
   <form action="javascript:void(0);" id="saveEdit">
-    <input type="text" id="edit-name">
+    <input type="text" id="edit-country">
+    <input type="text" id="edit-continent">
     <input type="submit" value="Edit" /> <a onclick="closeInput()" aria-label="Close">&#10006;</a>
   </form>
 </div>
@@ -24,7 +26,8 @@
 
 <table>
   <tr>
-    <th id="name" colspan="3">Country names:</th>
+    <th id="name">Country names</th>
+    <th id="continent">Continent</th>
   </tr>
     <tbody id="countries">
     </tbody>

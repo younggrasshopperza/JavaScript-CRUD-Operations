@@ -10,3 +10,9 @@ input[type='submit'], button, [aria-label]{
 table, th, td {
   border:1px solid black;
 }
+#name {
+  cursor: pointer;
+}
+#continent {
+  cursor: pointer;
+}

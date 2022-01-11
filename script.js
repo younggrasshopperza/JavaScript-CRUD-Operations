@@ -1,6 +1,4 @@
-// Part 3: Create a search bar to find a specific country
-
-// Solution with a try catch for validation
+// Part 4: Sorting the array alphabetically
 
 // CREATE, READ, UPDATE, DELETE
 var countryList = document.getElementById('countries');
@@ -11,7 +9,7 @@ let countries = [
   },
   {
     name: 'Japan',
-    continent: 'South America'
+    continent: 'Asia'
   },
   {
     name: 'Egypt',
@@ -46,7 +44,6 @@ getCountries = () => {
       data += '</tr>';
     }
   }
-
   countCountries(countries.length);
   return countryList.innerHTML = data;
 };
@@ -135,6 +132,40 @@ searchbar = () => {
     alert(err.message);
   }
 };
+
+// Sort: Sort countries alphabetically
+sortCountries = () => {
+  // Sorting alphabetically in decending order
+  countries.sort((a, b) => {
+    let fa = a.name.toLowerCase(),
+    fb = b.name.toLowerCase();
+    if (fa < fb) {
+      return -1;
+    }
+    if (fa > fb) {
+        return 1;
+    }
+    return 0;
+  });
+  getCountries();
+}
+
+// Sort: Sort continents alphabetically
+sortContinent = () => {
+  // Sorting alphabetically in decending order
+  countries.sort((a, b) => {
+    let fa = a.continent.toLowerCase(),
+    fb = b.continent.toLowerCase();
+    if (fa < fb) {
+      return -1;
+    }
+    if (fa > fb) {
+        return 1;
+    }
+    return 0;
+  });
+  getCountries();
+}
 
 // Where the script starts. This executes when the file loads on the browser
 getCountries();

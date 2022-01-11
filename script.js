@@ -11,7 +11,7 @@ let countries = [
   },
   {
     name: 'Japan',
-    continent: 'South America'
+    continent: 'Asia'
   },
   {
     name: 'Egypt',

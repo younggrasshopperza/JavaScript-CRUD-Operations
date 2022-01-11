@@ -10,5 +10,13 @@
     {
         "name": "Egypt",
         "continent": "Africa"
+    },
+    {
+        "name": "Canada",
+        "continent": "North America"
+    },
+    {
+        "name": "France",
+        "continent": "Europe"
     }
 ]

@@ -28,14 +28,22 @@
       <option value="North America">North America</option>
       <option value="South America">South America</option>
     </select>
-    <!-- <input type="text" id="add-continent" placeholder="Add new continent" required> -->
     <input type="submit" value="Add">
   </form>
 
   <div id="editForm">
     <form action="javascript:void(0);" id="saveEdit">
-      <input type="text" id="edit-country">
-      <input type="text" id="edit-continent">
+      <input type="text" id="edit-country" required>
+      <select name="edit-continent" id="edit-continent" required>
+        <option value="" disabled></option>
+        <option value="Africa">Africa</option>
+        <option value="Antarctica">Antarctica</option>
+        <option value="Asia">Asia</option>
+        <option value="Australia">Australia</option>
+        <option value="Europe">Europe</option>
+        <option value="North America">North America</option>
+        <option value="South America">South America</option>
+      </select>
       <input type="submit" value="Edit" /> <a onclick="closeInput()" aria-label="Close">&#10006;</a>
     </form>
   </div>

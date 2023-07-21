@@ -7,29 +7,58 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<h1>Country List</h1>
-<form action="javascript:void(0);" onsubmit="addCountry()"> 
-  <input type="text" id="add-name" placeholder="Add new country">
-  <input type="submit" value="Add">
-</form>
-
-<div id="editForm">
-  <form action="javascript:void(0);" id="saveEdit">
-    <input type="text" id="edit-name">
-    <input type="submit" value="Edit" /> <a onclick="closeInput()" aria-label="Close">&#10006;</a>
+  <h1>Country List</h1>
+  <form action="javascript:void(0);" onsubmit="searchbar()"> 
+    <div>Search for a country:</div>
+    <input type="text" id="search" placeholder="Search..." required>
+    <input type="submit" value="Search">
+    <input type="submit" value="Reset" onclick="location.reload()">
   </form>
-</div>
+  <p></p>
+  <div>Add another country: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label>Add a continent:</label></div>
+  <form action="javascript:void(0);" onsubmit="addCountry()"> 
+    <input type="text" id="add-country" placeholder="Add new country" required>
+    <select name="add-continent" id="add-continent" required>
+      <option value="" disabled></option>
+      <option value="Africa">Africa</option>
+      <option value="Antarctica">Antarctica</option>
+      <option value="Asia">Asia</option>
+      <option value="Australia">Australia</option>
+      <option value="Europe">Europe</option>
+      <option value="North America">North America</option>
+      <option value="South America">South America</option>
+    </select>
+    <input type="submit" value="Add">
+  </form>
 
-<p id="counter"></p>
+  <div id="editForm">
+    <form action="javascript:void(0);" id="saveEdit">
+      <input type="text" id="edit-country" required>
+      <select name="edit-continent" id="edit-continent" required>
+        <option value="" disabled></option>
+        <option value="Africa">Africa</option>
+        <option value="Antarctica">Antarctica</option>
+        <option value="Asia">Asia</option>
+        <option value="Australia">Australia</option>
+        <option value="Europe">Europe</option>
+        <option value="North America">North America</option>
+        <option value="South America">South America</option>
+      </select>
+      <input type="submit" value="Edit" /> <a onclick="closeInput()" aria-label="Close">&#10006;</a>
+    </form>
+  </div>
 
-<table>
-  <tr>
-    <th id="name">Country names:</th>
-  </tr>
-    <tbody id="countries">
-    </tbody>
-</table>
+  <p id="counter"></p>
 
-<script src="script.js"></script>
+  <table>
+    <tr>
+      <th id="name" onclick="sortCountries()">Country</th>
+      <th id="continent" onclick="sortContinent()">Continent</th>
+    </tr>
+      <tbody id="countries">
+      </tbody>
+  </table>
+
+  <script src="script.js"></script>
 </body>
 </html>

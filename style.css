@@ -7,3 +7,12 @@ input[type='submit'], button, [aria-label]{
 #counter {
     font-weight: bold;
 }
+table, th, td {
+  border:1px solid black;
+}
+#name {
+  cursor: pointer;
+}
+#continent {
+  cursor: pointer;
+}

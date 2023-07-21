@@ -1,0 +1,22 @@
+[
+    {
+        "name": "Columbia",
+        "continent": "South America"
+    },
+    {
+        "name": "Japan",
+        "continent": "Asia"
+    },
+    {
+        "name": "Egypt",
+        "continent": "Africa"
+    },
+    {
+        "name": "Canada",
+        "continent": "North America"
+    },
+    {
+        "name": "France",
+        "continent": "Europe"
+    }
+]
